@@ -6,11 +6,10 @@
  */
 export function sortStrings(arr, param = 'asc') {
   const arr_f = [...arr];
-  return arr_f.Sort( (a, b) => {
+  return arr_f.sort( (a, b) => {
   if (param === 'asc') 
     return a.localeCompare(b,  ["ru", "en"], {caseFirst: 'upper'} );
   if (param === 'desc')
-    return b.localCompare(a, ["ru", "en"], {caseFirst: 'lower'} );
+    return b.localeCompare(a, ["ru", "en"], {caseFirst: 'lower'} );
   })
 }
-

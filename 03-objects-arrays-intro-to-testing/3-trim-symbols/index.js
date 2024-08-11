@@ -5,22 +5,26 @@
  * @returns {string} - the new string without extra symbols according passed size
  */
 export function trimSymbols(stroka, size) {
-    const res="";
-    const i = 0;
-    if (size === undefined) {
-        res == stroka;
+ let res ="";
+ let preres="";
+ let i=1;
+ if (size === undefined) {
+    res = stroka;
+  } else {
+     if (size>0) {
+        for (let char of stroka)
+         {
+        if (i<size || preres!=char) {
+            res=res+char;
+            if (preres!=char){
+                preres=char;
+                i=1;
+ }          else if (i<size) {
+                i=i+1;
+                    }
+                }        
+            }
+        }
     }
-    else 
-    {
-    while (i < stroka.length) {
-        const current_str = stroka[i];
-        const r = i;
-        while (stroka[i] === current_str)
-            {
-                i = i++;
-            }   
-        res += current_str.repeat(i - r).slice(0, size);    
-    }
-        return res;
-}
+    return res;
 }
